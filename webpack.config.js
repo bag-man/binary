@@ -2,6 +2,18 @@ const path = require('path')
 const JavaScriptObfuscator = require('webpack-obfuscator')
 const TerserPlugin = require('terser-webpack-plugin')
 
+const obfuscatorOptions =  {
+  rotateUnicodeArray: true,
+  stringArrayEncoding: 'rc4',
+  target: 'node',
+  unicodeEscapeSequence: true,
+  identifierNamesGenerator: 'hexadecimal',
+  renameGlobals: true,
+  rotateStringArray: true,
+  transformObjectKeys: true,
+  seed: 28651296049594
+}
+
 module.exports = {
   entry: './src/index.ts',
   module: {
@@ -33,8 +45,7 @@ module.exports = {
     ],
   },
   plugins: [
-      new JavaScriptObfuscator ({
-        rotateUnicodeArray: true
-    }, []),
+      new JavaScriptObfuscator (obfuscatorOptions, []),
   ],
 }
+

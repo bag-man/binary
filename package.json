@@ -4,8 +4,8 @@
   "description": "Test",
   "scripts": {
     "clean": "rm -rf build/",
-    "build": "webpack --config webpack.config.js --mode production && cp src/pkg.json build/package.json",
-    "package": "npm run clean && npm run build && pkg ./build --out-path build/bin/ --options no-warnings"
+    "build": "npm run clean && webpack --config webpack.config.js --mode production && cp src/pkg.json build/package.json",
+    "package": "npm run build && pkg ./build --out-path build/bin/ --options no-warnings"
   },
   "author": "bag-man",
   "license": "ISC",
@@ -20,6 +20,6 @@
     "typescript": "^3.4.5",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.2",
-    "webpack-obfuscator": "^0.18.0"
+    "webpack-obfuscator": "^0.16.0"
   }
 }
