@@ -1,14 +1,14 @@
 {
-  "name": "binary-test",
+  "name": "binary",
   "version": "1.0.0",
-  "description": "Test",
+  "description": "Binary node app for all platforms",
   "scripts": {
     "clean": "rm -rf build/",
     "build": "npm run clean && webpack --config webpack.config.js --mode production && cp src/pkg.json build/package.json",
     "package": "npm run build && pkg ./build --out-path build/bin/ --options no-warnings"
   },
   "author": "bag-man",
-  "license": "ISC",
+  "license": "GPL",
   "dependencies": {
     "axios": "^0.18.0",
     "bitcoinjs-lib": "^5.0.3"
