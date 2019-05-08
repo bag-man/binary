@@ -1,0 +1,25 @@
+{
+  "name": "binary-test",
+  "version": "1.0.0",
+  "description": "Test",
+  "scripts": {
+    "clean": "rm -rf build/",
+    "build": "webpack --config webpack.config.js --mode production && cp src/pkg.json build/package.json",
+    "package": "npm run clean && npm run build && pkg ./build --out-path build/bin/ --options no-warnings"
+  },
+  "author": "bag-man",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bitcoinjs-lib": "^5.0.3"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/bitcoinjs-lib": "^4.0.1",
+    "ts-loader": "^6.0.0",
+    "typescript": "^3.4.5",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-obfuscator": "^0.18.0"
+  }
+}

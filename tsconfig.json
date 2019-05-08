@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "outDir": "./build/",
+    "rootDir": "./src/",
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "es5",
+    "allowJs": true,
+    "lib": ["es2017", "esnext.asynciterable"],
+    "moduleResolution": "node"
+  },
+  "include": ["src"]
+}
