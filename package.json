@@ -6,8 +6,10 @@
     "dev": "tsc-watch --onSuccess 'node ./build/index.js'",
     "start": "node ./build/index.js",
     "clean": "rm -rf build/",
-    "build": "npm run clean && webpack --config webpack.config.js --mode production && cp src/pkg.json build/package.json",
-    "package": "npm run build && pkg ./build --out-path build/bin/ --options no-warnings"
+    "build": "npm run clean && npm run lint && webpack --config webpack.config.js --mode production && cp src/pkg.json build/package.json && cp -r assets build",
+    "package": "npm run build && pkg ./build --out-path build/bin/ --options no-warnings",
+    "lint": "eslint '*/**/*.ts' -f unix", 
+    "lint:fix": "eslint '*/**/*.ts' -f unix --fix" 
   },
   "author": "bag-man",
   "license": "GPL",
@@ -18,11 +20,47 @@
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/bitcoinjs-lib": "^4.0.1",
+    "@typescript-eslint/eslint-plugin": "^1.7.0",
+    "@typescript-eslint/parser": "^1.7.0",
+    "eslint": "^5.16.0",
     "ts-loader": "^6.0.0",
     "tsc-watch": "^2.1.2",
     "typescript": "^3.4.5",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.2",
     "webpack-obfuscator": "^0.16.0"
+  },
+  "eslintIgnore": ["webpack.config.js", "build/*"],
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint"],
+    "extends":  [
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "env": {
+      "es6": true,
+      "jest": true
+    },
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },  
+    "rules": {
+      "@typescript-eslint/indent": ["error", 2],
+      "@typescript-eslint/explicit-function-return-type": ["error"],
+      "semi": ["error", "never"],
+      "camelcase": [ 2, { "properties": "always" } ],
+      "comma-style": [ "error", "last" ],
+      "complexity": [ 2, 6 ],
+      "curly": [ 2, "multi-line" ],
+      "indent": 0,
+      "max-len": [ 2, 120, 2 ],
+      "max-nested-callbacks": [ 2, 10 ],
+      "max-params": [ 2, 7 ],
+      "max-statements": [ 2, 25 ],
+      "no-path-concat": 0,
+      "no-unused-vars": [ 2, "all" ],
+      "padded-blocks": [ "error", "never" ],
+      "space-before-function-paren": [ 2, "always" ]
+    }
   }
 }

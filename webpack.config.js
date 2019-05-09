@@ -47,5 +47,6 @@ module.exports = {
   plugins: [
       new JavaScriptObfuscator (obfuscatorOptions, []),
   ],
+  node: false
 }
 
