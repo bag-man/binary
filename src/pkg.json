@@ -1,4 +1,5 @@
-{ "name": "binary-test",
+{ 
+  "name": "binary",
   "bin": "index.js", 
   "pkg": {
     "targets": [

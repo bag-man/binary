@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Binary node app for all platforms",
   "scripts": {
+    "dev": "tsc-watch --onSuccess 'node ./build/index.js'",
+    "start": "node ./build/index.js",
     "clean": "rm -rf build/",
     "build": "npm run clean && webpack --config webpack.config.js --mode production && cp src/pkg.json build/package.json",
     "package": "npm run build && pkg ./build --out-path build/bin/ --options no-warnings"
@@ -17,6 +19,7 @@
     "@types/axios": "^0.14.0",
     "@types/bitcoinjs-lib": "^4.0.1",
     "ts-loader": "^6.0.0",
+    "tsc-watch": "^2.1.2",
     "typescript": "^3.4.5",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.2",
