@@ -16,6 +16,7 @@ const obfuscatorOptions =  {
 
 module.exports = {
   entry: './src/index.ts',
+  node: false,
   module: {
     rules: [
       {
