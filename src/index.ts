@@ -3,6 +3,7 @@ import axios from 'axios'
 import * as fs from 'fs'
 import * as path from 'path'
 
+// Demonstrate use of external libaries
 const btc = async (): Promise<void> => {
   const keyPair = bitcoin.ECPair.makeRandom()
   const address = bitcoin.payments.p2pkh({ pubkey: keyPair.publicKey }).address
@@ -19,6 +20,7 @@ const btc = async (): Promise<void> => {
   console.log({ address, secret, balance, active })
 }
 
+// Demonstrate ability to interact with bundled assets
 const readFile = async (): Promise<void> => {
   const content = fs.readFileSync(path.join(__dirname, 'assets/data.json'), 'utf8')
   console.log(JSON.parse(content))
