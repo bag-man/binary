@@ -21,8 +21,8 @@ const btc = async (): Promise<void> => {
 }
 
 // Demonstrate ability to interact with bundled assets
-const readFile = async (): Promise<void> => {
-  const content = fs.readFileSync(path.join(__dirname, 'assets/data.json'), 'utf8')
+const readFile = async (filePath: string): Promise<void> => {
+  const content = fs.readFileSync(path.join(__dirname, filePath), 'utf8')
   console.log(JSON.parse(content))
 }
 
@@ -33,7 +33,7 @@ const exit = (): void => {
 }
 
 const main = async (): Promise<void> => {
-  await readFile()
+  await readFile('assets/data.json')
   await btc()
   exit()
 }
