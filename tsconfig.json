@@ -5,10 +5,11 @@
     "noImplicitAny": true,
     "module": "commonjs",
     "target": "es5",
-    "lib": ["es2017", "esnext.asynciterable"],
+    "lib": [ "es2017", "esnext.asynciterable" ],
     "moduleResolution": "node",
     "strict": true,
-    "noImplicitReturns": true
+    "noImplicitReturns": true,
+    "typeRoots": [ "./types", "./node_modules/@types"]
   },
-  "include": ["src"]
+  "include": [ "src", "./types" ]
 }

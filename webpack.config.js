@@ -1,6 +1,7 @@
 const path = require('path')
 const JavaScriptObfuscator = require('webpack-obfuscator')
 const TerserPlugin = require('terser-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin');
 
 const obfuscatorOptions =  {
   rotateUnicodeArray: true,
@@ -15,6 +16,7 @@ const obfuscatorOptions =  {
 }
 
 module.exports = {
+  mode: 'production',
   entry: './src/index.ts',
   module: {
     rules: [
@@ -45,7 +47,11 @@ module.exports = {
     ],
   },
   plugins: [
-      new JavaScriptObfuscator (obfuscatorOptions, []),
+     new CopyPlugin([
+      { from: 'assets', to: 'assets' },
+      { from: 'src/pkg.json', to: 'package.json' },
+    ]),
+    new JavaScriptObfuscator (obfuscatorOptions, []),
   ],
   node: false
 }
