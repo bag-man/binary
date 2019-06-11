@@ -14,7 +14,7 @@
   "author": "bag-man",
   "license": "GPL",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "bitcoinjs-lib": "^5.0.3"
   },
   "devDependencies": {
