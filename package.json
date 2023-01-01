@@ -22,14 +22,14 @@
     "@types/bitcoinjs-lib": "^4.0.1",
     "@typescript-eslint/eslint-plugin": "^1.9.0",
     "@typescript-eslint/parser": "^1.9.0",
-    "copy-webpack-plugin": "^5.0.3",
+    "copy-webpack-plugin": "^11.0.0",
     "eslint": "^5.16.0",
     "pkg": "^4.3.8",
-    "ts-loader": "^6.0.0",
+    "ts-loader": "^9.4.2",
     "tsc-watch": "^2.2.0",
     "typescript": "^3.4.5",
-    "webpack": "^4.31.0",
-    "webpack-cli": "^3.3.2",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
     "webpack-obfuscator": "^0.16.0"
   },
   "eslintIgnore": [
